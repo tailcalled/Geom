@@ -17,5 +17,9 @@ case class V3(x: Double, y: Double, z: Double) {
       this.z * that.x - this.x * that.z,
       this.x * that.y - that.x * this.y
     )
+  def unit = {
+    val n = norm
+    if (n < 1E-10) this else this / n
+  }
   
 }

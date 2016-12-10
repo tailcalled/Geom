@@ -12,5 +12,10 @@ case class V2(x: Double, y: Double) {
   def norm2 = this * this
   def norm = math.sqrt(norm2)
   def cp(that: V2) = this.x * that.y - that.x * this.y
+  def cross = V2(-y, x)
+  def unit = {
+    val n = norm
+    if (n < 1E-10) this else this / n
+  }
   
 }
